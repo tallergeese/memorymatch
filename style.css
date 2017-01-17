@@ -1,0 +1,87 @@
+html{
+    height: 100vh;
+}
+
+body{
+    width:90%;
+    height:100%;
+    margin:0 auto;
+    background-image:url(ktane-background.jpg);
+}
+
+header{
+    width:100%;
+    height:20vh;
+    position:relative;
+    background-color: rgba(255,255,255,0.6);
+    margin-bottom:3vh;
+}
+
+header img {
+    height: 100%;
+    width: auto;
+    display:block;
+    margin:0 auto;
+
+}
+
+ul {
+    position:absolute;
+    right: 2vw;
+    bottom: 2vh;
+}
+
+li{
+    list-style-type:none;
+    display:inline-block;
+    position:relative;
+    right:0;
+    margin: auto 2vw;
+}
+
+#stats-container{
+    font-family: alarmClock, sans-serif;
+    width:20%;
+    height:100%;
+    display:inline-block;
+    margin:0;
+    color: red;
+    font-weight:bold;
+    font-size: 3vh;
+    padding-left: 2vw;
+}
+
+.label {
+    margin: 1vh auto;
+}
+
+#game-area{
+    width:75%;
+    height:100%;
+    float:right;
+}
+
+a:link, a:visited{
+    text-decoration:none;
+    color:red;
+    font-size: 2vh;
+    font-weight:bold;
+}
+
+.card{
+    width: 14%;
+    position: relative;
+    height: 26%;
+    display: inline-block;
+    border: 2px beige solid;
+}
+.front, .back{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color:white;
+}
+.card img{
+    height: 100%;
+    width: 100%;
+}
