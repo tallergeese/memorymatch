@@ -35,6 +35,7 @@ function card_clicked(){
          $(this).addClass("already_clicked");
     }
      else {
+
          second_card_clicked = $(this);
          $(this).addClass("already_clicked");
 
@@ -87,7 +88,7 @@ function display_stats(){
 
 function winnerIsYou(){
     var $winner = $("<div>").addClass("winner").text("YOU WON!");
-    var $reset = $("<button>").addClass("reset").text("CARRY ON");
+    var $reset = $("<button>").addClass("reset").text("TRY AGAIN?");
     $("body").append($winner);
     $(".winner").append($reset);
     $(".winner .reset").click(function(){
@@ -126,4 +127,3 @@ function cardRandomizer(){
     }
 }
 
-//
