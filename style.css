@@ -1,6 +1,6 @@
 html{
-    height: 100vh;
-    font-family: "Overpass Mono", "monospace";
+    height:90vh;
+    font-size: 100%;
     color:red;
 }
 
@@ -9,6 +9,7 @@ body{
     height:100%;
     margin:0 auto;
     background-image:url(ktane-background.jpg);
+    position:relative;
 }
 
 header{
@@ -20,11 +21,10 @@ header{
 }
 
 header img {
-    height: 100%;
+    height: 95%;
     width: auto;
     display:block;
     margin:0 auto;
-
 }
 
 ul {
@@ -38,7 +38,7 @@ li{
     display:inline-block;
     position:relative;
     right:0;
-    margin: auto 2vw;
+    margin: auto 1vw;
 }
 
 #stats-container{
@@ -47,6 +47,7 @@ li{
     display:inline-block;
     margin:0;
     background-color:rgba(255,255,255,.6);
+    font-family: "Overpass Mono", "monospace";
     font-weight:bold;
     font-size: 3vh;
     padding-left: 2vw;
@@ -55,9 +56,9 @@ li{
 .reset{
     background-color:black;
     color: red;
-    padding: 2vh;
-    margin-top: 2vh;
-    font-size: 3vh;
+    padding: 2vmin;
+    margin: 2vmin auto;
+    font-size: 3vmin;
     border:none;
 }
 
@@ -75,15 +76,17 @@ a:link, a:visited{
     text-decoration:none;
     font-size: 2vh;
     font-weight:bold;
+    font-family: "gloria hallelujah", sans-serif;
     color:red;
 }
 
 .card{
-    width: 15%;
+    width: 14%;
     position: relative;
     height: 26%;
     display: inline-block;
     border: 2px beige solid;
+    margin: auto 1%;
 }
 .front, .back{
     position: absolute;
@@ -91,7 +94,47 @@ a:link, a:visited{
     height: 100%;
     background-color:white;
 }
+
 .card img{
     height: 100%;
     width: 100%;
+}
+
+.winner{
+    margin: auto;
+    width: 25%;
+    height: 20%;
+    position: fixed;
+    background-color:rgba(1,1,1,.6);
+    color:red;
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%);
+    font-size:3em;
+    text-align:center;
+}
+.winner button{
+    margin: auto;
+}
+
+/* ABOUT ME */
+
+.about_background{
+    width: 60%;
+    position:relative;
+    margin: auto;
+}
+
+.about_background img{
+    width:100%;
+    height: auto;
+}
+.about_content{
+    width:45%;
+    color:black;
+    font-family: "Courier New";
+    position: absolute;
+    top:25%;
+    left:10%;
+    font-size: 1vw;
 }
