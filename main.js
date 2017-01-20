@@ -87,7 +87,7 @@ function display_stats(){
 
 function winnerIsYou(){
     var $winner = $("<div>").addClass("winner").text("YOU WON!");
-    var $reset = $("<button>").addClass("reset").text("TRY AGAIN?");
+    var $reset = $("<button>").addClass("reset").text("CARRY ON");
     $("body").append($winner);
     $(".winner").append($reset);
     $(".winner .reset").click(function(){

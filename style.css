@@ -1,4 +1,5 @@
 html{
+    font-family: "Overpass Mono", "monospace";
     height:90vh;
     font-size: 100%;
     color:red;
@@ -46,8 +47,6 @@ li{
     height:100%;
     display:inline-block;
     margin:0;
-    background-color:rgba(255,255,255,.6);
-    font-family: "Overpass Mono", "monospace";
     font-weight:bold;
     font-size: 3vh;
     padding-left: 2vw;
@@ -59,6 +58,7 @@ li{
     padding: 2vmin;
     margin: 2vmin auto;
     font-size: 3vmin;
+    font-family: "Overpass Mono", "monospace";
     border:none;
 }
 
@@ -86,7 +86,7 @@ a:link, a:visited{
     height: 26%;
     display: inline-block;
     border: 2px beige solid;
-    margin: auto 1%;
+    margin: auto 0.5%;
 }
 .front, .back{
     position: absolute;
