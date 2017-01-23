@@ -2,11 +2,11 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Memory Match!</title>
     <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
-    <!--<script src="http://learning-fuze.github.io/memory_match/v0.1/script.js"></script>-->
     <script src="main.js"></script>
-    <link href="https://fonts.googleapis.com/css?family=Overpass+Mono" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Gloria+Hallelujah|Overpass+Mono" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 
 
@@ -14,9 +14,9 @@
 <body>
 
 <header>
-    <img src="ktane-logo.png" alt="Memory Match Logo">
+    <div class="header-img-container"><img src="ktane-logo.png" alt="Memory Match Logo"></div>
     <ul>
-        <li><a href="about.html">About Me</a></li>
+        <li><a href="about.html" target="_blank">About Me</a></li>
         <li><a href="#">Settings</a></li>
     </ul>
 
@@ -39,7 +39,12 @@
         <div class="value">---</div>
     </div>
 
-    <button class="reset">Reset Game</button>
+    <div>
+        <div class = "label">Time to Detonation!</div>
+        <div id="timer"></div>
+    </div>
+
+    <button class="reset">RESET</button>
 </section>
 
 <div id="game-area">

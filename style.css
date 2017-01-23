@@ -1,36 +1,46 @@
 html{
-    height: 100vh;
     font-family: "Overpass Mono", "monospace";
+    font-size: 0;
+    margin:0;
     color:red;
+}
+
+body > * {
+    font-size:initial;
 }
 
 body{
     width:90%;
-    height:100%;
+    height: 100vh;
     margin:0 auto;
     background-image:url(ktane-background.jpg);
+    position:relative;
 }
 
 header{
     width:100%;
-    height:20vh;
     position:relative;
     background-color: rgba(255,255,255,0.6);
     margin-bottom:3vh;
 }
 
+.header-img-container{
+    width:40%;
+    height:100%;
+    margin: 0 auto;
+}
 header img {
-    height: 100%;
-    width: auto;
+    width: 100%;
+    height:auto;
     display:block;
     margin:0 auto;
-
 }
 
 ul {
     position:absolute;
     right: 2vw;
     bottom: 2vh;
+    margin: 0;
 }
 
 li{
@@ -38,7 +48,7 @@ li{
     display:inline-block;
     position:relative;
     right:0;
-    margin: auto 2vw;
+    margin: auto 1vw;
 }
 
 #stats-container{
@@ -46,23 +56,31 @@ li{
     height:100%;
     display:inline-block;
     margin:0;
-    background-color:rgba(255,255,255,.6);
     font-weight:bold;
-    font-size: 3vh;
+    font-size: 3vmin;
     padding-left: 2vw;
 }
 
 .reset{
     background-color:black;
     color: red;
-    padding: 2vh;
-    margin-top: 2vh;
-    font-size: 3vh;
+    padding: 2vmin;
+    margin: 2vmin auto;
+    font-size: 3vmin;
+    font-family: "Overpass Mono", "monospace";
     border:none;
+    display:block;
+}
+
+.reset:focus{
+    outline:none;
 }
 
 .label {
     margin: 1vh auto;
+}
+#timer {
+    font-size: 5vmin;
 }
 
 #game-area{
@@ -73,17 +91,20 @@ li{
 
 a:link, a:visited{
     text-decoration:none;
-    font-size: 2vh;
+    font-size: 1vw;
     font-weight:bold;
+    font-family: "gloria hallelujah", sans-serif;
     color:red;
 }
 
 .card{
-    width: 15%;
+    width: 14%;
     position: relative;
-    height: 26%;
+    height: 20%;
     display: inline-block;
     border: 2px beige solid;
+    margin: auto 0.5%;
+    box-sizing: border-box;
 }
 .front, .back{
     position: absolute;
@@ -91,7 +112,73 @@ a:link, a:visited{
     height: 100%;
     background-color:white;
 }
+
 .card img{
     height: 100%;
     width: 100%;
+}
+
+.winner{
+    margin: auto;
+    width: 25%;
+    height: 20%;
+    position: fixed;
+    background-color:rgba(1,1,1,.6);
+    color:red;
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%);
+    font-size:3em;
+    text-align:center;
+}
+.winner button, .loser button{
+    margin: auto;
+}
+
+.loser{
+    margin: auto;
+    width: 100%;
+    position: fixed;
+    background-color: black;
+    color:red;
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%);
+    font-size:3em;
+    text-align:center;
+}
+
+.loser img{
+    width:100%;
+    height:auto;
+}
+
+.loser .reset {
+    position:fixed;
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%);
+
+}
+
+/* ABOUT ME */
+
+.about_background{
+    width: 60%;
+    position:relative;
+    margin: auto;
+}
+
+.about_background img{
+    width:100%;
+    height: auto;
+}
+.about_content{
+    width:45%;
+    color:black;
+    font-family: "Courier New";
+    position: absolute;
+    top:25%;
+    left:10%;
+    font-size: 2vh;
 }
