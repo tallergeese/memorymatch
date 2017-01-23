@@ -46,7 +46,6 @@ function card_clicked(){
          var second_card_compare = second_card_clicked.find("img").attr("src");
 
          if (first_card_compare.substr(0,3) === second_card_compare.substr(0,3)) {
-             console.log(first_card_clicked.find("img").attr("src"));
              first_card_clicked = null;
              second_card_clicked = null;
 
@@ -60,7 +59,7 @@ function card_clicked(){
 
          else {
              $(".card").off("click");
-             setTimeout(cardsGoFacedown, 2000);
+             setTimeout(cardsGoFacedown, 500);
 
          }
     }

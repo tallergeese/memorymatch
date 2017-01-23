@@ -1,9 +1,8 @@
 html{
     font-family: "Overpass Mono", "monospace";
-    height:90vh;
     font-size: 0;
+    margin:0;
     color:red;
-
 }
 
 body > * {
@@ -12,7 +11,7 @@ body > * {
 
 body{
     width:90%;
-    height:100%;
+    height: 100vh;
     margin:0 auto;
     background-image:url(ktane-background.jpg);
     position:relative;
@@ -41,6 +40,7 @@ ul {
     position:absolute;
     right: 2vw;
     bottom: 2vh;
+    margin: 0;
 }
 
 li{
@@ -57,7 +57,7 @@ li{
     display:inline-block;
     margin:0;
     font-weight:bold;
-    font-size: 3vh;
+    font-size: 3vmin;
     padding-left: 2vw;
 }
 
@@ -69,6 +69,10 @@ li{
     font-size: 3vmin;
     font-family: "Overpass Mono", "monospace";
     border:none;
+}
+
+.reset:focus{
+    outline:none;
 }
 
 .label {
@@ -92,10 +96,11 @@ a:link, a:visited{
 .card{
     width: 14%;
     position: relative;
-    height: 26%;
+    height: 20%;
     display: inline-block;
     border: 2px beige solid;
     margin: auto 0.5%;
+    box-sizing: border-box;
 }
 .front, .back{
     position: absolute;
@@ -145,5 +150,5 @@ a:link, a:visited{
     position: absolute;
     top:25%;
     left:10%;
-    font-size: 1vw;
+    font-size: 2vh;
 }
