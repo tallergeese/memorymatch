@@ -69,6 +69,7 @@ li{
     font-size: 3vmin;
     font-family: "Overpass Mono", "monospace";
     border:none;
+    display:block;
 }
 
 .reset:focus{
@@ -77,6 +78,9 @@ li{
 
 .label {
     margin: 1vh auto;
+}
+#timer {
+    font-size: 5vmin;
 }
 
 #game-area{
@@ -127,8 +131,34 @@ a:link, a:visited{
     font-size:3em;
     text-align:center;
 }
-.winner button{
+.winner button, .loser button{
     margin: auto;
+}
+
+.loser{
+    margin: auto;
+    width: 100%;
+    position: fixed;
+    background-color: black;
+    color:red;
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%);
+    font-size:3em;
+    text-align:center;
+}
+
+.loser img{
+    width:100%;
+    height:auto;
+}
+
+.loser .reset {
+    position:fixed;
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%);
+
 }
 
 /* ABOUT ME */

@@ -59,7 +59,8 @@ function card_clicked(){
 
          else {
              $(".card").off("click");
-             setTimeout(cardsGoFacedown, 500);
+             countDownDate = countDownDate - 10000;
+             setTimeout(cardsGoFacedown, 2000);
 
          }
     }
@@ -94,35 +95,81 @@ function winnerIsYou(){
         reset_stats();
         display_stats();
     });
-
 }
 
-function reset_stats(){
-    $(".winner").remove();
-    accuracy = 0;
-    match_counter = 0;
-    attempts = 0;
-    games_played++;
+function loserIsYou() {
+    var $loser = $("<div>").addClass("loser").text("YOU KILLED EVERYONE...");
+    var $reset = $("<button>").addClass("reset").text("TRY AGAIN?");
+    var $explosion = $('<img>').attr('src', 'explosion.jpg')
 
-    $(".back").show();
-    $(".card").click(card_clicked).removeClass("already_clicked");
-    first_card_clicked = null;
-    second_card_clicked = null;
-
-    display_stats();
-    cardRandomizer();
+    $("body").append($loser);
+    $(".loser").append($explosion).append($reset);
+    $(".loser .reset").click(function(){
+        reset_stats();
+        display_stats();
+    });
 }
+
+function reset_stats() {
+        $(".winner").remove();
+        $('.loser').remove();
+        accuracy = 0;
+        match_counter = 0;
+        attempts = 0;
+        games_played++;
+
+        $(".back").show();
+        $(".card").click(card_clicked).removeClass("already_clicked");
+        first_card_clicked = null;
+        second_card_clicked = null;
+
+        display_stats();
+        cardRandomizer();
+
+        countDownDate = new Date().getTime() + 180000;
+    }
 
 //RANDOMIZER
-function getRandomNumber(min, max){
-    return Math.floor(Math.random()*(max-min+1)) + min;
-}
-
-function cardRandomizer(){
-    for (var i = 0; i < 100; i++){
-        var random = getRandomNumber(1,18);
-        var randomizedCard = $(".card:nth-child(" + random + ")");
-        $("#game-area").append(randomizedCard);
+    function getRandomNumber(min, max) {
+        return Math.floor(Math.random() * (max - min + 1)) + min;
     }
-}
 
+    function cardRandomizer() {
+        for (var i = 0; i < 100; i++) {
+            var random = getRandomNumber(1, 18);
+            var randomizedCard = $(".card:nth-child(" + random + ")");
+            $("#game-area").append(randomizedCard);
+        }
+    }
+
+//TIMER
+    var countDownDate = new Date().getTime() + 180000;
+
+// Update the count down every 1 second
+    var countDownTimer = setInterval(function () {
+
+        // Get todays date and time
+        var now = new Date().getTime();
+
+        // Find the distance between now an the count down date
+        var distance = countDownDate - now;
+
+        // Time calculations for days, hours, minutes and seconds
+        var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+        // Display the result in the element with id="demo"
+
+        if (seconds > 9) {
+            document.getElementById("timer").innerHTML = minutes + ":" + seconds;
+        }
+        else {
+            document.getElementById("timer").innerHTML = minutes + ":0" + seconds
+        }
+        // If the count down is finished, write some text
+        if (distance < 0) {
+            clearInterval(countDownTimer);
+            document.getElementById("timer").innerHTML = "0:00";
+            loserIsYou();
+        }
+    }, 1000);
