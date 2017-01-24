@@ -128,11 +128,16 @@ a:link, a:visited{
     top:50%;
     left:50%;
     transform:translate(-50%,-50%);
-    font-size:3em;
+    font-size:4vmin;
     text-align:center;
 }
-.winner button, .loser button{
+.winner .reset, .loser .reset{
     margin: auto;
+}
+
+.winner .reset{
+    position:absolute;
+    bottom:0;
 }
 
 .loser{

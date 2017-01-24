@@ -12,45 +12,44 @@ var attempts = 0;
 var accuracy = 0;
 var games_played = 0;
 
+var countDownDate = new Date().getTime() + 180000;
+
 $(document).ready(function(){
     cardRandomizer();
+    countDownTimer();
     $(".card").click(card_clicked);
-    $(".reset").click(function(){
-        reset_stats();
-        display_stats();
-    });
+    $(".reset").click(reset_stats);
 });
 
 function card_clicked(){
 
     if ($(this).hasClass("already_clicked")) {
-        second_card_clicked = null;
         return false;
     }
 
     $(this).find(".back").hide();
 
-    if (first_card_clicked == null){
+    if (first_card_clicked === null){
          first_card_clicked = $(this);
          $(this).addClass("already_clicked");
     }
-     else {
-
+    else {
          second_card_clicked = $(this);
          $(this).addClass("already_clicked");
 
          attempts++;
-         display_stats();
 
          var first_card_compare = first_card_clicked.find("img").attr("src");
          var second_card_compare = second_card_clicked.find("img").attr("src");
 
-         if (first_card_compare.substr(0,3) === second_card_compare.substr(0,3)) {
+         if (first_card_compare === second_card_compare) {
              first_card_clicked = null;
              second_card_clicked = null;
 
              match_counter++;
              display_stats();
+
+             countDownDate = countDownDate + 5000;
 
              if (match_counter >= total_possible_matches) {
                  setTimeout(winnerIsYou);
@@ -63,6 +62,7 @@ function card_clicked(){
              setTimeout(cardsGoFacedown, 2000);
 
          }
+        display_stats();
     }
 }
 
@@ -91,41 +91,37 @@ function winnerIsYou(){
     var $reset = $("<button>").addClass("reset").text("TRY AGAIN?");
     $("body").append($winner);
     $(".winner").append($reset);
-    $(".winner .reset").click(function(){
-        reset_stats();
-        display_stats();
-    });
+    $(".winner .reset").click(reset_stats);
 }
 
 function loserIsYou() {
-    var $loser = $("<div>").addClass("loser").text("YOU KILLED EVERYONE...");
+    var $loser = $("<div>").addClass("loser");
     var $reset = $("<button>").addClass("reset").text("TRY AGAIN?");
     var $explosion = $('<img>').attr('src', 'explosion.jpg')
 
     $("body").append($loser);
     $(".loser").append($explosion).append($reset);
-    $(".loser .reset").click(function(){
-        reset_stats();
-        display_stats();
-    });
+    $(".loser .reset").click(reset_stats);
 }
 
 function reset_stats() {
         $(".winner").remove();
         $('.loser').remove();
+
         accuracy = 0;
         match_counter = 0;
         attempts = 0;
         games_played++;
 
         $(".back").show();
-        $(".card").click(card_clicked).removeClass("already_clicked");
+        $(".card").removeClass("already_clicked").click(card_clicked);
         first_card_clicked = null;
         second_card_clicked = null;
 
         display_stats();
         cardRandomizer();
 
+        countDownTimer();
         countDownDate = new Date().getTime() + 180000;
     }
 
@@ -143,10 +139,11 @@ function reset_stats() {
     }
 
 //TIMER
-    var countDownDate = new Date().getTime() + 180000;
 
 // Update the count down every 1 second
-    var countDownTimer = setInterval(function () {
+function countDownTimer(){
+
+    setInterval(function () {
 
         // Get todays date and time
         var now = new Date().getTime();
@@ -158,18 +155,18 @@ function reset_stats() {
         var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
         var seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-        // Display the result in the element with id="demo"
-
         if (seconds > 9) {
             document.getElementById("timer").innerHTML = minutes + ":" + seconds;
         }
         else {
             document.getElementById("timer").innerHTML = minutes + ":0" + seconds
         }
-        // If the count down is finished, write some text
+
         if (distance < 0) {
             clearInterval(countDownTimer);
             document.getElementById("timer").innerHTML = "0:00";
             loserIsYou();
         }
     }, 1000);
+}
+
