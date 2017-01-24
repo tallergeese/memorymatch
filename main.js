@@ -50,6 +50,10 @@ function card_clicked(){
              display_stats();
 
              countDownDate = countDownDate + 5000;
+             $('.time-status').text('+5 seconds!').css('color', 'green');
+             setTimeout(function(){
+                 $('.time-status').text('');
+             }, 1000);
 
              if (match_counter >= total_possible_matches) {
                  setTimeout(winnerIsYou);
@@ -59,6 +63,10 @@ function card_clicked(){
          else {
              $(".card").off("click");
              countDownDate = countDownDate - 10000;
+             $('.time-status').text('-10 seconds!').css('color', 'red');
+             setTimeout(function(){
+                 $('.time-status').text('');
+             }, 1000);
              setTimeout(cardsGoFacedown, 2000);
 
          }
@@ -156,15 +164,15 @@ function countDownTimer(){
         var seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
         if (seconds > 9) {
-            document.getElementById("timer").innerHTML = minutes + ":" + seconds;
+            $('#timer').text(minutes + ":" + seconds);
         }
         else {
-            document.getElementById("timer").innerHTML = minutes + ":0" + seconds
+            $('#timer').text(minutes + ":0" + seconds);
         }
 
         if (distance < 0) {
             clearInterval(countDownTimer);
-            document.getElementById("timer").innerHTML = "0:00";
+            $('#timer').text("0:00");
             loserIsYou();
         }
     }, 1000);

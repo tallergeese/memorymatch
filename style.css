@@ -61,6 +61,10 @@ li{
     padding-left: 2vw;
 }
 
+.time-status{
+    height:1em;
+}
+
 .reset{
     background-color:black;
     color: red;
