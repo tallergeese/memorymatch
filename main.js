@@ -16,7 +16,7 @@ var countDownDate = new Date().getTime() + 180000;
 
 $(document).ready(function(){
     cardRandomizer();
-    countDownTimer();
+    //countDownTimer();
     $(".card").click(card_clicked);
     $(".reset").click(reset_stats);
 });
@@ -75,9 +75,11 @@ function card_clicked(){
 }
 
 function cardsGoFacedown() {
+    first_card_clicked.removeClass('already_clicked');
+    second_card_clicked.removeClass('already_clicked');
     first_card_clicked.find(".back").show();
     second_card_clicked.find(".back").show();
-    $(".card").click(card_clicked).removeClass("already_clicked");
+    $(".card").click(card_clicked);
     first_card_clicked = null;
     second_card_clicked = null;
 }
