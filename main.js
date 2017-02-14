@@ -16,7 +16,7 @@ var countDownDate = new Date().getTime() + 180000;
 
 $(document).ready(function(){
     cardRandomizer();
-    //countDownTimer();
+    countDownTimer();
     $(".card").click(card_clicked);
     $(".reset").click(reset_stats);
 });
