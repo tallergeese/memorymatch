@@ -15,6 +15,7 @@ body{
     margin:0 auto;
     background-image:url(ktane-background.jpg);
     position:relative;
+    overflow: hidden;
 }
 
 header{
@@ -102,9 +103,9 @@ a:link, a:visited{
 }
 
 .card{
-    width: 14%;
+    width: 10vw;
     position: relative;
-    height: 20%;
+    height: 11vw;
     display: inline-block;
     border: 2px beige solid;
     margin: auto 0.5%;
@@ -190,4 +191,38 @@ a:link, a:visited{
     top:25%;
     left:10%;
     font-size: 2vh;
+}
+
+@media only screen and (max-width: 414px){
+    #stats-container{
+        text-align:center;
+        width: 100%;
+        height: initial;
+        display: flex;
+        justify-content: space-around;
+        flex-flow: wrap;
+    }
+    #stats-container>.stats{
+        width:33%;
+    }
+    #stats-container>.timer{
+        width:100%;
+    }
+
+    #game-area{
+        width:100%;
+        height:initial;
+        display: flex;
+        justify-content: space-between;
+        flex-flow:wrap;
+    }
+
+    .card{
+        width: 14vw;
+        height: 15vw;
+        /*margin: 1vw auto;*/
+    }
+    .time-status{
+        height: 0;
+    }
 }
